@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AuthForm from './AuthForm';
 import GigCard from './GigCard';
 import UserProfile from './components/UserProfile';
+import Need40Section from './components/Need40Section';
 import { supabase, getGigs, createGig, signOut } from './supabase';
 import TestConnection from './components/TestConnection';
 import './App.css';
@@ -172,6 +173,8 @@ function App() {
           </div>
 
           <main className="main-content">
+            <Need40Section />
+            
             <section className="gigs-section">
               <div className="section-header">
                 <h2>Latest Gigs</h2>
