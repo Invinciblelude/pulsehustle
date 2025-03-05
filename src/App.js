@@ -149,7 +149,7 @@ function App() {
             <div className="hero-content">
               <span className="hero-tag">Next-Gen Gig Platform</span>
               <h1>PulseHustle</h1>
-              <p>Connect with high-paying gigs that match your skills. Start earning $600+ today!</p>
+              <p>Connect with high-paying gigs that match your skills. Start earning $600+ today! [Test Update]</p>
               <div className="hero-stats">
                 <div className="stat">
                   <span className="stat-number">$600</span>
