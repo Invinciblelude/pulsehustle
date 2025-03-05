@@ -1,0 +1,132 @@
+.auth-form-container {
+  position: relative;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 480px;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: var(--text-primary);
+}
+
+.auth-form-container h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.auth-subtitle {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.error-message {
+  color: var(--error-color);
+  background-color: #fff5f5;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #feb2b2;
+  margin: 0.5rem 0;
+}
+
+.submit-button {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 0.875rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}
+
+.toggle-button:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .auth-form-container {
+    padding: 1.5rem;
+  }
+
+  .auth-form-container h2 {
+    font-size: 1.5rem;
+  }
+} 

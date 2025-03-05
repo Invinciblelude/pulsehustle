@@ -1,0 +1,251 @@
+.profile-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-info h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.profile-info h2 {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.rate, .availability {
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.edit-button {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.profile-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.profile-section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-tag {
+  background: var(--background-light);
+  color: var(--accent-color);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.remove-skill {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.remove-skill:hover {
+  color: var(--error-color);
+}
+
+.add-skill {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add-skill input {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 2rem;
+  font-size: 0.875rem;
+}
+
+.add-skill button {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-item {
+  padding: 1.5rem;
+  background: var(--background-light);
+  border-radius: 0.75rem;
+}
+
+.experience-item h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.experience-item .company {
+  color: var(--accent-color);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.experience-item .dates {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.experience-item .description {
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.add-experience {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--background-light);
+  border-radius: 0.75rem;
+}
+
+.date-inputs {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-info p {
+  color: var(--text-primary);
+}
+
+.contact-info a {
+  color: var(--accent-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.error {
+  color: var(--error-color);
+}
+
+@media (max-width: 640px) {
+  .profile-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .edit-button {
+    width: 100%;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .date-inputs {
+    flex-direction: column;
+  }
+} 

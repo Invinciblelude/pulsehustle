@@ -1,0 +1,148 @@
+.search-filters {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.search-button {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 0 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.search-button:hover {
+  transform: translateY(-2px);
+}
+
+.filters-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-group select,
+.filter-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.rate-range {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rate-range input {
+  width: calc(50% - 0.5rem);
+}
+
+.rate-range span {
+  color: var(--text-secondary);
+}
+
+.filter-actions {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.apply-filters,
+.clear-filters {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.apply-filters {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+}
+
+.clear-filters {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.apply-filters:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.clear-filters:hover {
+  background: var(--background-light);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .search-filters {
+    padding: 1rem;
+  }
+
+  .filters-section {
+    flex-direction: column;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-actions {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .apply-filters,
+  .clear-filters {
+    flex: 1;
+  }
+} 
