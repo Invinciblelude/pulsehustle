@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseHustle Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #0070f3;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PulseHustle Test Page</h1>
+        <p>If you can see this page, your domain is correctly connected to Vercel!</p>
+        <p>This is a simple test page to verify domain connectivity.</p>
+        <p>Current time: <span id="current-time"></span></p>
+    </div>
+
+    <script>
+        // Display current time
+        function updateTime() {
+            document.getElementById('current-time').textContent = new Date().toLocaleString();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html> 
