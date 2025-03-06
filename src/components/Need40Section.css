@@ -1,11 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 .need40-section {
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
   border-radius: 20px;
-  color: white;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  color: #1a1f36;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.ai-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(37, 99, 235, 0.1);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  color: #2563eb;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  margin-left: 5px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .need40-header {
@@ -16,21 +74,42 @@
 .need40-header h1 {
   font-size: 3.5rem;
   font-weight: 800;
-  background: linear-gradient(45deg, #1da1f2, #00ff9d);
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+.need40-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
+  border-radius: 2px;
 }
 
 .purpose-line {
-  font-size: 1.4rem;
-  color: #ffffff;
+  font-size: 1.6rem;
+  color: #4b5563;
   max-width: 800px;
   margin: 0 auto 2.5rem;
   line-height: 1.6;
-  opacity: 0.9;
+}
+
+.highlight {
+  color: #2563eb;
+  font-weight: 600;
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.2rem;
 }
 
 .stats-banner {
@@ -41,20 +120,30 @@
 }
 
 .stats-banner span {
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff;
   padding: 1.2rem 2rem;
   border-radius: 12px;
-  font-weight: 700;
-  color: white;
-  font-size: 1.2rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+  color: #4b5563;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stats-banner span strong {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2563eb;
 }
 
 .stats-banner span:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1);
 }
 
 .action-buttons {
@@ -86,21 +175,21 @@
 .action-buttons button:hover,
 .action-buttons a:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15);
 }
 
 .give40-button {
-  background: linear-gradient(45deg, #1da1f2, #00ff9d);
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
   color: white;
 }
 
 .paypal-button {
-  background: linear-gradient(45deg, #0070ba, #003087);
+  background: #0070ba;
   color: white;
 }
 
 .x-share-button {
-  background: linear-gradient(45deg, #000000, #333333);
+  background: #000000;
   color: white;
 }
 
@@ -119,30 +208,38 @@
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: #ffffff;
   padding: 2.5rem;
   border-radius: 16px;
   text-align: center;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .feature-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
 }
 
 .feature-card h3 {
-  color: white;
+  color: #1a1f36;
   font-size: 1.5rem;
   margin-bottom: 1.2rem;
   font-weight: 700;
 }
 
-.feature-card p,
-.feature-card a {
-  color: rgba(255, 255, 255, 0.8);
+.feature-card p {
+  color: #4b5563;
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -150,22 +247,41 @@
 .contact-section {
   text-align: center;
   padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: #ffffff;
   border-radius: 16px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  position: relative;
+}
+
+.realtime-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2563eb;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .contact-section h3 {
   font-size: 2rem;
-  color: white;
+  color: #1a1f36;
   margin-bottom: 1rem;
   font-weight: 700;
+  margin-top: 1rem;
 }
 
 .contact-section p {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #4b5563;
   margin-bottom: 2rem;
 }
 
@@ -184,21 +300,20 @@
   font-weight: 700;
   font-size: 1.1rem;
   transition: all 0.3s ease;
+  color: white;
 }
 
 .post-button {
-  background: linear-gradient(45deg, #1da1f2, #00ff9d);
-  color: white;
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
 }
 
 .earn-button {
-  background: linear-gradient(45deg, #28a745, #1da1f2);
-  color: white;
+  background: linear-gradient(45deg, #10b981, #059669);
 }
 
 .contact-buttons button:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -230,5 +345,13 @@
   
   .contact-buttons button {
     width: 100%;
+  }
+
+  .ai-badge {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: 0 auto 2rem;
+    width: fit-content;
   }
 } 
