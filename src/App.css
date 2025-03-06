@@ -79,8 +79,8 @@
 }
 
 .hero-content {
-  flex: 0.8;
-  max-width: 520px;
+  flex: 0.7;
+  max-width: 480px;
   position: relative;
   z-index: 2;
 }
@@ -136,10 +136,10 @@
 }
 
 .hero-image {
-  flex: 1.2;
+  flex: 1.3;
   position: relative;
-  max-width: 720px;
-  height: 520px;
+  max-width: 800px;
+  height: 550px;
 }
 
 .hero-image img {
@@ -274,7 +274,7 @@
 
   .hero-image {
     max-width: 100%;
-    height: 400px;
+    height: 450px;
   }
 
   .nav-links {
@@ -450,13 +450,14 @@ textarea#description {
   }
   
   .hero-content {
-    flex: 0.9;
+    flex: 0.8;
+    max-width: 450px;
   }
   
   .hero-image {
-    flex: 1.1;
-    max-width: 650px;
-    height: 480px;
+    flex: 1.2;
+    max-width: 680px;
+    height: 500px;
   }
   
   .hero-content h1 {
