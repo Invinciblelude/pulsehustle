@@ -15,7 +15,7 @@ const Need40Section = () => {
   };
 
   const handleXShare = () => {
-    const text = "Join the fair work movement! 🚀 Post $600 gigs, workers earn $540 (90%), platform fee just $60 (10%). Powered by Grok AI! #PulseHustle #Need40 #FairWork";
+    const text = "Join the fair work movement! 🚀 Post $600 gigs, workers earn $540 (90%), platform fee just $60 (10%). Powered by Super Grok AI! #PulseHustle #Need40 #FairWork";
     const url = "https://pulsehustle.com";
     window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
   };
@@ -23,7 +23,7 @@ const Need40Section = () => {
   return (
     <section className="need40-section">
       <div className="ai-badge">
-        Powered by Grok AI
+        Powered by Super Grok AI
         <span className="pulse"></span>
       </div>
 
@@ -32,7 +32,7 @@ const Need40Section = () => {
         <p className="purpose-line">
           Post $600 Gigs → Workers Earn $540 (90%) → Just $60 Fee (10%)
           <br />
-          <span className="highlight">Real-time AI matching powered by Grok</span>
+          <span className="highlight">Real-time AI matching powered by Super Grok</span>
         </p>
         <div className="stats-banner">
           <span>
@@ -76,7 +76,7 @@ const Need40Section = () => {
       <div className="features-grid">
         <div className="feature-card">
           <div className="feature-icon">🤖</div>
-          <h3>Grok AI Integration</h3>
+          <h3>Super Grok AI Integration</h3>
           <p>Real-time matching algorithm connects talent to $600 opportunities within seconds</p>
         </div>
         <div className="feature-card">
