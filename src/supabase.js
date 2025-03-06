@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Use environment variables and strip any quotes
+// Use environment variables but strip any quotes
 let supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 let supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
 
@@ -24,9 +24,8 @@ if (!supabaseUrl || !supabaseAnonKey) {
   // Create a single supabase client for interacting with your database
   supabase = createClient(fallbackUrl, fallbackKey);
 } else {
-  // Create a single supabase client for interacting with your database
   console.log('Using environment variables for Supabase connection');
-  console.log('URL:', supabaseUrl);
+  // Create a single supabase client for interacting with your database
   supabase = createClient(supabaseUrl, supabaseAnonKey);
 }
 
