@@ -1,4 +1,20 @@
 {
+  "name": "pulsehustle",
   "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "github": {
+    "silent": true
+  },
   "framework": "create-react-app"
 } 
