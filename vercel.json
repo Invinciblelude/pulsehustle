@@ -43,8 +43,8 @@
     }
   ],
   "env": {
-    "REACT_APP_SUPABASE_URL": "@supabase_url",
-    "REACT_APP_SUPABASE_ANON_KEY": "@supabase_anon_key"
+    "REACT_APP_SUPABASE_URL": "https://ztskirwngauupmszsrjm.supabase.co",
+    "REACT_APP_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp0c2tpcnduZ2F1dXBtc3pzcmptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDExNzA2ODcsImV4cCI6MjA1Njc0NjY4N30.yFrlG9P1ym-azn-gVwlwtKMMckP5jeQSCxcRz9woC9E"
   },
   "github": {
     "silent": true
