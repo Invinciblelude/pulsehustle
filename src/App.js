@@ -167,7 +167,7 @@ function App() {
               </div>
             </div>
             <div className="hero-image">
-              <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Money and Success" />
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Professional team working together" />
               <div className="hero-image-overlay"></div>
             </div>
           </div>
