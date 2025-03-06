@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { processPayPalPayment, processGigPayment } from '../api/paymentAPI';
 import { supabase } from '../supabase';
+import { Payments } from '../api'; // Import our new centralized API interface
 
 const usePayment = () => {
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ const usePayment = () => {
       // We don't use the user here but keep for consistency with getCurrentUser pattern
       await getCurrentUser();
       
-      const result = await processPayPalPayment(
+      const result = await Payments.processPayPal(
         amount, 
         description,
         window.location.origin + '/payment-success'
@@ -56,7 +56,7 @@ const usePayment = () => {
         throw new Error('You must be logged in to create a gig');
       }
       
-      const result = await processGigPayment(gigData, user.id);
+      const result = await Payments.processGig(gigData, user.id);
       setPaymentData(result);
       return result;
     } catch (err) {
@@ -73,7 +73,7 @@ const usePayment = () => {
     setError(null);
     
     try {
-      const result = await processPayPalPayment(
+      const result = await Payments.processPayPal(
         amount,
         'Donation to Need40 initiative',
         window.location.origin + '/thank-you'
