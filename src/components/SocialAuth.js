@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { signInWithGoogle, signInWithX, signInWithGitHub } from '../api/services/authService';
-import { FaGoogle, FaXTwitter, FaGithub } from 'react-icons/fa6';
+import { signInWithGoogle, signInWithX, signInWithGitHub, signInWithFacebook } from '../api/services/authService';
+import { FaGoogle, FaXTwitter, FaGithub, FaFacebook } from 'react-icons/fa6';
 import { Button, Box, Text, VStack, HStack, Divider, useToast, Center } from '@chakra-ui/react';
 
 /**
@@ -11,7 +11,8 @@ const SocialAuth = ({ onSuccess }) => {
   const [isLoading, setIsLoading] = useState({
     google: false,
     x: false,
-    github: false
+    github: false,
+    facebook: false
   });
   const toast = useToast();
 
@@ -29,6 +30,9 @@ const SocialAuth = ({ onSuccess }) => {
           break;
         case 'github':
           response = await signInWithGitHub();
+          break;
+        case 'facebook':
+          response = await signInWithFacebook();
           break;
         default:
           throw new Error('Unknown provider');
@@ -75,6 +79,18 @@ const SocialAuth = ({ onSuccess }) => {
         fontSize="md"
       >
         Continue with Google
+      </Button>
+      
+      <Button
+        onClick={() => handleSocialLogin('facebook')}
+        isLoading={isLoading.facebook}
+        colorScheme="facebook"
+        leftIcon={<FaFacebook />}
+        width="100%"
+        height="50px"
+        fontSize="md"
+      >
+        Continue with Facebook
       </Button>
       
       <Button

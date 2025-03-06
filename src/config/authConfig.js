@@ -3,6 +3,10 @@
  * Centralized auth settings for the application
  */
 
+// Get deployment URL from environment or fall back to localhost
+const appUrl = process.env.REACT_APP_APP_URL || window.location.origin;
+const appName = process.env.REACT_APP_WEBSITE_NAME || 'PulseHustle';
+
 // OAuth Providers configuration
 export const oauthProviders = {
   google: {
@@ -21,7 +25,15 @@ export const oauthProviders = {
     name: 'GitHub',
     scopes: 'user:email',
   },
-  // You can add more providers here like Facebook, LinkedIn, etc.
+  facebook: {
+    name: 'Facebook',
+    scopes: 'email,public_profile',
+    /* 
+     * Additional Facebook-specific options can be added here,
+     * such as profileFields: ['id', 'email', 'name', 'picture']
+     */
+  },
+  // You can add more providers here like LinkedIn, etc.
 };
 
 // Auth callback configuration
@@ -32,8 +44,8 @@ export const authCallbackConfig = {
   // Path for OAuth callback handling
   callbackPath: '/auth/callback',
   
-  // Get the full callback URL based on current origin
-  getCallbackUrl: () => `${window.location.origin}/auth/callback`,
+  // Get the full callback URL based on current origin or environment variable
+  getCallbackUrl: () => `${appUrl}/auth/callback`,
 };
 
 // Session configuration
@@ -63,11 +75,11 @@ export const socialShareConfig = {
  * Used by some providers that request app information
  */
 export const getAppBranding = () => ({
-  name: 'PulseHustle',
-  logoUrl: `${window.location.origin}/logo.png`,
-  websiteUrl: window.location.origin,
-  privacyPolicyUrl: `${window.location.origin}/privacy`,
-  termsOfServiceUrl: `${window.location.origin}/terms`,
+  name: appName,
+  logoUrl: `${appUrl}/logo.png`,
+  websiteUrl: appUrl,
+  privacyPolicyUrl: `${appUrl}/privacy`,
+  termsOfServiceUrl: `${appUrl}/terms`,
 });
 
 export default {

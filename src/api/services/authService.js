@@ -134,6 +134,32 @@ export const signInWithX = async () => {
 };
 
 /**
+ * Handles sign in with Facebook
+ * @returns {Promise<Object>} Auth response or error
+ */
+export const signInWithFacebook = async () => {
+  try {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'facebook',
+      options: {
+        redirectTo: authCallbackConfig.getCallbackUrl(),
+        scopes: oauthProviders.facebook.scopes
+      }
+    });
+
+    if (error) {
+      console.error('Error signing in with Facebook:', error.message);
+      return { error: error.message };
+    }
+
+    return { success: true, data };
+  } catch (error) {
+    console.error('Unexpected error during Facebook sign in:', error.message);
+    return { error: 'An unexpected error occurred' };
+  }
+};
+
+/**
  * Handles user sign out
  * @returns {Promise<Object>} Success or error response
  */
