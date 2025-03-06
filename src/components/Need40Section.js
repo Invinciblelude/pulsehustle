@@ -91,6 +91,14 @@ const Need40Section = () => {
         </div>
       </div>
 
+      <div className="quote-section">
+        <div className="quote-icon">"</div>
+        <p className="quote-text">
+          The best things in life are free, but when it has value, pay. 
+          <span className="quote-highlight">Why not pay for it and thrive?</span>
+        </p>
+      </div>
+
       <div className="contact-section">
         <div className="realtime-badge">
           <span className="pulse"></span>

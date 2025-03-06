@@ -2,7 +2,7 @@
 
 .need40-section {
   padding: 4rem 2rem;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
   border-radius: 20px;
@@ -11,6 +11,7 @@
   position: relative;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
+  width: 95%;
 }
 
 .ai-badge {
@@ -115,7 +116,7 @@
 .stats-banner {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 5rem;
   margin-top: 2rem;
 }
 
@@ -149,7 +150,7 @@
 .action-buttons {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
   margin-bottom: 4rem;
   flex-wrap: wrap;
 }
@@ -165,7 +166,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 220px;
+  min-width: 250px;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -202,8 +203,8 @@
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
   margin-bottom: 4rem;
 }
 
@@ -242,6 +243,45 @@
   color: #4b5563;
   font-size: 1.1rem;
   line-height: 1.6;
+}
+
+.quote-section {
+  margin: 3rem auto 5rem;
+  text-align: center;
+  position: relative;
+  padding: 3rem;
+  max-width: 900px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border-radius: 20px;
+}
+
+.quote-icon {
+  font-size: 8rem;
+  line-height: 0;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(37, 99, 235, 0.1);
+  font-family: Georgia, serif;
+  font-weight: 700;
+}
+
+.quote-text {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: #1a1f36;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+  font-style: italic;
+}
+
+.quote-highlight {
+  color: #2563eb;
+  font-weight: 700;
+  display: block;
+  margin-top: 0.5rem;
 }
 
 .contact-section {
@@ -317,6 +357,11 @@
 }
 
 @media (max-width: 768px) {
+  .need40-section {
+    width: 90%;
+    padding: 3rem 1.5rem;
+  }
+  
   .need40-header h1 {
     font-size: 2.5rem;
   }
@@ -353,5 +398,19 @@
     right: 0;
     margin: 0 auto 2rem;
     width: fit-content;
+  }
+
+  .quote-section {
+    padding: 2rem 1.5rem;
+    margin: 2rem auto 3rem;
+  }
+  
+  .quote-text {
+    font-size: 1.4rem;
+  }
+  
+  .quote-icon {
+    font-size: 5rem;
+    top: 0.5rem;
   }
 } 
