@@ -1,15 +1,26 @@
 import { createClient } from '@supabase/supabase-js';
 
+// Use environment variables
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
 
+let supabase;
+
+// Check if environment variables are defined
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
+  console.error('Missing Supabase environment variables. Falling back to hardcoded values.');
+  // Fallback to hardcoded values (for development only)
+  const fallbackUrl = 'https://ztskirwngauupmszsrjm.supabase.co';
+  const fallbackKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp0c2tpcnduZ2F1dXBtc3pzcmptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDExNzA2ODcsImV4cCI6MjA1Njc0NjY4N30.yFrlG9P1ym-azn-gVwlwtKMMckP5jeQSCxcRz9woC9E';
+  
+  // Create a single supabase client for interacting with your database
+  supabase = createClient(fallbackUrl, fallbackKey);
+} else {
+  // Create a single supabase client for interacting with your database
+  supabase = createClient(supabaseUrl, supabaseAnonKey);
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
-// Auth functions
+// Optional helper functions
 export const signUp = async (email, password) => {
   return await supabase.auth.signUp({ email, password });
 };
@@ -21,6 +32,9 @@ export const signIn = async (email, password) => {
 export const signOut = async () => {
   return await supabase.auth.signOut();
 };
+
+export { supabase };
+export default supabase;
 
 // Profile functions
 export const getProfile = async (userId) => {
