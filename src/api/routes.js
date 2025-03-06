@@ -3,7 +3,7 @@
  * These can be used with a server implementation like Express
  */
 
-import { Payments, Gigs, AiMatching, Grok, Stats, Contact } from './index';
+import { Payments, Gigs, AiMatching, Grok, Stats, Contact, Profiles } from './index';
 
 /**
  * Initialize API routes on an Express app
@@ -114,6 +114,35 @@ export const initializeRoutes = (app) => {
 
   app.post('/api/admin/messages/:id/process', authenticate, asyncHandler(async (req, res) => {
     const result = await Contact.markProcessed(req.params.id);
+    res.json(result);
+  }));
+  
+  // Profile Routes
+  app.get('/api/profile', authenticate, asyncHandler(async (req, res) => {
+    const result = await Profiles.getProfile(req.user?.id);
+    res.json(result);
+  }));
+  
+  app.put('/api/profile', authenticate, asyncHandler(async (req, res) => {
+    const result = await Profiles.updateProfile(req.user?.id, req.body);
+    res.json(result);
+  }));
+  
+  app.get('/api/profiles/skills', asyncHandler(async (req, res) => {
+    const skills = req.query.skills ? req.query.skills.split(',') : [];
+    const limit = parseInt(req.query.limit) || 10;
+    const result = await Profiles.getBySkills(skills, limit);
+    res.json(result);
+  }));
+  
+  // Application Routes
+  app.get('/api/applications', authenticate, asyncHandler(async (req, res) => {
+    const result = await Profiles.getApplications(req.user?.id);
+    res.json(result);
+  }));
+  
+  app.post('/api/gigs/:id/apply', authenticate, asyncHandler(async (req, res) => {
+    const result = await Profiles.applyForGig(req.params.id, req.user?.id, req.body);
     res.json(result);
   }));
 }; 

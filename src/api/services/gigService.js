@@ -4,7 +4,7 @@
  */
 
 import { supabase } from '../../supabase';
-import { executeDbOperation, logDbOperation, withTransaction } from '../utils/dbUtils';
+import { executeDbOperation, logDbOperation } from '../utils/dbUtils';
 import * as AiMatchingService from './aiMatchingService';
 import * as GrokService from './grokService';
 import * as StatsService from './statsService';

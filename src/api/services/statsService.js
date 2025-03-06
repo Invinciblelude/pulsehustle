@@ -168,4 +168,87 @@ export const recordJobCreation = async (gigId) => {
       error: error.message || 'Error recording job creation' 
     };
   }
+};
+
+/**
+ * Record a job completion event
+ * Updates the statistics accordingly
+ * 
+ * @param {string} gigId - ID of the gig that was completed
+ * @returns {Promise<Object>} - Result of the operation
+ */
+export const recordJobCompletion = async (gigId) => {
+  try {
+    // Log the operation
+    await logDbOperation('record_completion', 'stats', { gigId });
+    
+    // Get the gig to calculate earnings
+    const { data: gig, error: gigError } = await supabase
+      .from('gigs')
+      .select('pay, worker_rate, platform_fee')
+      .eq('id', gigId)
+      .single();
+    
+    if (gigError) throw gigError;
+    
+    // Get the current stats
+    const { data: stats, error: statsError } = await supabase
+      .from('stats')
+      .select('*')
+      .eq('id', '1')
+      .single();
+    
+    if (statsError && statsError.code !== 'PGRST116') { // PGRST116 is "row not found"
+      throw statsError;
+    }
+    
+    const currentStats = stats || {
+      id: '1',
+      jobs_created: 0,
+      jobs_completed: 0,
+      total_earnings: 0,
+      worker_earnings: 0,
+      platform_fees: 0,
+      weekly_goal: 10,
+      annual_projection: 520
+    };
+    
+    // Update stats with completion data
+    await executeDbOperation(async () => {
+      const { error: updateError } = await supabase
+        .from('stats')
+        .upsert({
+          ...currentStats,
+          jobs_completed: (currentStats.jobs_completed || 0) + 1,
+          total_earnings: (currentStats.total_earnings || 0) + (gig.pay || 0),
+          worker_earnings: (currentStats.worker_earnings || 0) + (gig.worker_rate || 0),
+          platform_fees: (currentStats.platform_fees || 0) + (gig.platform_fee || 0),
+          updated_at: new Date().toISOString()
+        });
+      
+      if (updateError) throw updateError;
+    });
+    
+    return {
+      success: true,
+      message: 'Job completion recorded in statistics'
+    };
+  } catch (error) {
+    console.error('Error recording job completion:', error);
+    
+    // Record error
+    await executeDbOperation(async () => {
+      await supabase.from('errors').insert({
+        message: `Completion recording error: ${error.message}`,
+        stack: error.stack,
+        context: { gigId },
+        created_at: new Date().toISOString()
+      });
+    });
+    
+    return { 
+      success: false, 
+      error: error.message || 'Error recording job completion' 
+    };
+  }
 }; 

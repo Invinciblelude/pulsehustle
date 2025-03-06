@@ -10,6 +10,8 @@ import * as AiMatchingService from './services/aiMatchingService';
 import * as GrokService from './services/grokService';
 import * as StatsService from './services/statsService';
 import * as ContactService from './services/contactService';
+import * as ProfileService from './services/profileService';
+import * as RealtimeService from './services/realtimeService';
 
 // Database utilities
 import * as DbUtils from './utils/dbUtils';
@@ -181,7 +183,14 @@ export const Stats = {
    * @param {string} gigId - ID of the gig that was created
    * @returns {Promise<Object>} - Result of the operation
    */
-  recordJobCreation: StatsService.recordJobCreation
+  recordJobCreation: StatsService.recordJobCreation,
+  
+  /**
+   * Record a job completion event
+   * @param {string} gigId - ID of the gig that was completed
+   * @returns {Promise<Object>} - Result of the operation
+   */
+  recordJobCompletion: StatsService.recordJobCompletion
 };
 
 /**
@@ -207,6 +216,80 @@ export const Contact = {
    * @returns {Promise<Object>} - Result of the operation
    */
   markProcessed: ContactService.markMessageProcessed
+};
+
+/**
+ * Profile API
+ */
+export const Profiles = {
+  /**
+   * Get a user profile
+   * @param {string} userId - User ID
+   * @returns {Promise<Object>} - Result of the operation
+   */
+  getProfile: ProfileService.getProfile,
+  
+  /**
+   * Update a user profile
+   * @param {string} userId - User ID
+   * @param {Object} profileData - Profile data to update
+   * @returns {Promise<Object>} - Result of the operation
+   */
+  updateProfile: ProfileService.updateProfile,
+  
+  /**
+   * Get profiles by skills
+   * @param {Array} skills - Skills to match
+   * @param {number} limit - Maximum number of profiles to return
+   * @returns {Promise<Object>} - Result of the operation
+   */
+  getBySkills: ProfileService.getProfilesBySkills,
+  
+  /**
+   * Get a user's applications
+   * @param {string} userId - User ID
+   * @returns {Promise<Object>} - Result of the operation
+   */
+  getApplications: ProfileService.getUserApplications,
+  
+  /**
+   * Apply for a gig
+   * @param {string} gigId - Gig ID
+   * @param {string} userId - User ID
+   * @param {Object} applicationData - Application data
+   * @returns {Promise<Object>} - Result of the operation
+   */
+  applyForGig: ProfileService.applyForGig
+};
+
+/**
+ * Realtime API
+ */
+export const Realtime = {
+  /**
+   * Initialize realtime subscriptions
+   * @param {string} userId - User ID
+   * @param {Function} onGigUpdate - Callback for gig updates
+   * @param {Function} onNewMatch - Callback for new matches
+   * @param {Function} onPaymentUpdate - Callback for payment updates
+   * @returns {Object} - Subscription objects
+   */
+  initializeSubscriptions: RealtimeService.initializeRealtimeSubscriptions,
+  
+  /**
+   * Subscribe to stats updates
+   * @param {Function} onStatsUpdate - Callback for stats updates
+   * @returns {Object} - Subscription object
+   */
+  subscribeToStats: RealtimeService.subscribeToStats,
+  
+  /**
+   * Broadcast an admin notification
+   * @param {string} event - Event type
+   * @param {Object} payload - Event payload
+   * @returns {Promise<Object>} - Result of the operation
+   */
+  broadcastAdminNotification: RealtimeService.broadcastAdminNotification
 };
 
 /**
