@@ -356,6 +356,17 @@
   box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15);
 }
 
+.error-message {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-radius: 8px;
+  border-left: 4px solid #ef4444;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .need40-section {
     width: 90%;

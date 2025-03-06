@@ -1,17 +1,39 @@
 import React, { useState } from 'react';
+import usePayment from '../hooks/usePayment';
 import './Need40Section.css';
 
 const Need40Section = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const { loading, error, handleDonation, handlePayPalPayment } = usePayment();
 
-  const handleGive40Click = () => {
+  const handleGive40Click = async () => {
     setIsLoading(true);
-    window.location.href = 'https://www.paypal.com/paypalme/invinciblelude/40';
+    try {
+      const result = await handleDonation(40);
+      if (!result.success) {
+        throw new Error(result.error || 'Donation failed');
+      }
+    } catch (err) {
+      console.error('Donation error:', err);
+      // Handle error - could add a toast notification here
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handlePayPalClick = () => {
+  const handlePayPalClick = async () => {
     setIsLoading(true);
-    window.location.href = 'https://www.paypal.com/paypalme/invinciblelude';
+    try {
+      const result = await handlePayPalPayment(600, 'Payment for $600 gig');
+      if (!result.success) {
+        throw new Error(result.error || 'Payment failed');
+      }
+    } catch (err) {
+      console.error('Payment error:', err);
+      // Handle error - could add a toast notification here
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleXShare = () => {
@@ -54,17 +76,17 @@ const Need40Section = () => {
         <button 
           className="give40-button" 
           onClick={handleGive40Click}
-          disabled={isLoading}
+          disabled={isLoading || loading}
         >
-          {isLoading ? 'Redirecting...' : 'Give40: Support'}
+          {isLoading || loading ? 'Processing...' : 'Give40: Support'}
           <span className="button-detail">Help create fair work opportunities</span>
         </button>
         <button 
           className="paypal-button" 
           onClick={handlePayPalClick}
-          disabled={isLoading}
+          disabled={isLoading || loading}
         >
-          {isLoading ? 'Redirecting...' : 'Pay $600'}
+          {isLoading || loading ? 'Processing...' : 'Pay $600'}
           <span className="button-detail">$540 to worker, $60 platform fee</span>
         </button>
         <button className="x-share-button" onClick={handleXShare}>
@@ -72,6 +94,12 @@ const Need40Section = () => {
           <span className="button-detail">Help spread fair work opportunities</span>
         </button>
       </div>
+
+      {error && (
+        <div className="error-message">
+          {error}
+        </div>
+      )}
 
       <div className="features-grid">
         <div className="feature-card">
