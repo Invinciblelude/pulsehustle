@@ -10,37 +10,8 @@
       }
     }
   ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "headers": { "cache-control": "s-maxage=31536000, immutable" },
-      "dest": "/static/$1"
-    },
-    { 
-      "src": "/favicon.ico", 
-      "dest": "/favicon.ico" 
-    },
-    { 
-      "src": "/asset-manifest.json", 
-      "dest": "/asset-manifest.json" 
-    },
-    { 
-      "src": "/manifest.json", 
-      "dest": "/manifest.json" 
-    },
-    { 
-      "src": "/precache-manifest.(.*)", 
-      "dest": "/precache-manifest.$1" 
-    },
-    { 
-      "src": "/auth/callback", 
-      "dest": "/index.html" 
-    },
-    {
-      "src": "/(.*)",
-      "headers": { "cache-control": "s-maxage=0" },
-      "dest": "/index.html"
-    }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "env": {
     "REACT_APP_SUPABASE_URL": "https://ztskirwngauupmszsrjm.supabase.co",
@@ -49,8 +20,5 @@
   "github": {
     "silent": true
   },
-  "framework": "create-react-app",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "framework": "create-react-app"
 } 
