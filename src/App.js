@@ -154,14 +154,14 @@ function App() {
               <div className="hero-stats">
                 <div className="stat">
                   <span className="stat-number">$600</span>
-                  <span className="stat-label">Avg. Gig Value</span>
+                  <span className="stat-label">Average Gig Value</span>
                 </div>
                 <div className="stat">
-                  <span className="stat-number">$540</span>
+                  <span className="stat-number">$570</span>
                   <span className="stat-label">Worker Earnings</span>
                 </div>
                 <div className="stat">
-                  <span className="stat-number">10%</span>
+                  <span className="stat-number">5%</span>
                   <span className="stat-label">Platform Fee</span>
                 </div>
               </div>

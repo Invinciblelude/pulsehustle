@@ -81,7 +81,11 @@ export const processGigPayment = async (gigData, userId) => {
       paymentMethod: 'paypal',
       description: `Payment for gig: ${gigData.title}`,
       userId: userId,
-      metadata: { gigId: gigData.id }
+      metadata: { 
+        gigId: gigData.id,
+        workerEarnings: 570, // $570 to worker (95%)
+        platformFee: 30 // $30 platform fee (5%)
+      }
     });
     
     if (!payment.success) throw new Error(payment.error);
@@ -95,6 +99,8 @@ export const processGigPayment = async (gigData, userId) => {
           description: gigData.description,
           payment_type: 'fixed',
           rate: 600,
+          worker_rate: 570,
+          platform_fee: 30,
           user_id: userId,
           payment_id: payment.data[0].id,
           status: 'active'

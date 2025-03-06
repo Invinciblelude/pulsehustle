@@ -19,7 +19,9 @@ const usePayment = () => {
     setError(null);
     
     try {
-      const user = await getCurrentUser();
+      // We don't use the user here but keep for consistency with getCurrentUser pattern
+      await getCurrentUser();
+      
       const result = await processPayPalPayment(
         amount, 
         description,
