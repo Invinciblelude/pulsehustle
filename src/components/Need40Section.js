@@ -15,7 +15,7 @@ const Need40Section = () => {
   };
 
   const handleXShare = () => {
-    const text = "Join the $1M labor movement! 🚀 Post $600 gigs, workers earn $480, platform fee $120. Powered by Grok AI! #PulseHustle #Need40 #FutureOfWork";
+    const text = "Join the fair work movement! 🚀 Post $600 gigs, workers earn $540 (90%), platform fee just $60 (10%). Powered by Grok AI! #PulseHustle #Need40 #FairWork";
     const url = "https://pulsehustle.com";
     window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
   };
@@ -28,24 +28,24 @@ const Need40Section = () => {
       </div>
 
       <div className="need40-header">
-        <h1>Need40: $1M Labor Movement</h1>
+        <h1>Need40: Fair Work Platform</h1>
         <p className="purpose-line">
-          Post $600 Gigs → Workers Earn $480 → Platform Fee $120
+          Post $600 Gigs → Workers Earn $540 (90%) → Just $60 Fee (10%)
           <br />
           <span className="highlight">Real-time AI matching powered by Grok</span>
         </p>
         <div className="stats-banner">
           <span>
-            <strong>$62K</strong>
+            <strong>$31K</strong>
             Year One Goal
           </span>
           <span>
-            <strong>$1M</strong>
-            Labor Impact
+            <strong>$540</strong>
+            Worker Earnings
           </span>
           <span>
-            <strong>50%</strong>
-            Success Rate
+            <strong>10%</strong>
+            Platform Fee
           </span>
         </div>
       </div>
@@ -56,8 +56,8 @@ const Need40Section = () => {
           onClick={handleGive40Click}
           disabled={isLoading}
         >
-          {isLoading ? 'Redirecting...' : 'Give40: Earn $480'}
-          <span className="button-detail">$480 for 40 hours—50% jobless rate</span>
+          {isLoading ? 'Redirecting...' : 'Give40: Support'}
+          <span className="button-detail">Help create fair work opportunities</span>
         </button>
         <button 
           className="paypal-button" 
@@ -65,11 +65,11 @@ const Need40Section = () => {
           disabled={isLoading}
         >
           {isLoading ? 'Redirecting...' : 'Pay $600'}
-          <span className="button-detail">$480 to worker, $120 platform fee</span>
+          <span className="button-detail">$540 to worker, $60 platform fee</span>
         </button>
         <button className="x-share-button" onClick={handleXShare}>
           Share Movement
-          <span className="button-detail">Help spread $1M labor opportunity</span>
+          <span className="button-detail">Help spread fair work opportunities</span>
         </button>
       </div>
 
@@ -80,14 +80,14 @@ const Need40Section = () => {
           <p>Real-time matching algorithm connects talent to $600 opportunities within seconds</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">🗳️</div>
-          <h3>Democratic Platform</h3>
-          <p>Vote on platform decisions and earn rewards—your voice shapes our future</p>
+          <div className="feature-icon">💰</div>
+          <h3>90% Worker Share</h3>
+          <p>Workers keep $540 of every $600 gig—one of the most generous platforms available</p>
         </div>
         <div className="feature-card">
-          <div className="feature-icon">💰</div>
-          <h3>Latest: $600 NYC Gig</h3>
-          <p>40 hours, $480 earnings—join the 20% of successful posters</p>
+          <div className="feature-icon">📈</div>
+          <h3>Sustainable Growth</h3>
+          <p>Just 10 gigs per week sustains the platform and covers all costs</p>
         </div>
       </div>
 
@@ -97,7 +97,7 @@ const Need40Section = () => {
           Live Opportunities
         </div>
         <h3>Ready to Join the Movement?</h3>
-        <p>Be part of the $1M labor revolution—Post or earn from $600 gigs</p>
+        <p>Be part of the fair work revolution—Post or earn from $600 gigs</p>
         <div className="contact-buttons">
           <button 
             className="post-button" 
@@ -115,7 +115,7 @@ const Need40Section = () => {
               element?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Earn $480 Now
+            Earn $540 Now
           </button>
         </div>
       </div>
