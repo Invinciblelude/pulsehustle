@@ -150,24 +150,24 @@ function App() {
             <div className="hero-content">
               <span className="hero-tag">Next-Gen Gig Platform</span>
               <h1>PulseHustle</h1>
-              <p>Connect with high-paying gigs that match your skills. Start earning $600+ today! [Test Update]</p>
+              <p>Connect with high-paying gigs that match your skills. Start earning $600+ today!</p>
               <div className="hero-stats">
                 <div className="stat">
                   <span className="stat-number">$600</span>
                   <span className="stat-label">Avg. Gig Value</span>
                 </div>
                 <div className="stat">
-                  <span className="stat-number">24h</span>
-                  <span className="stat-label">Fast Payment</span>
+                  <span className="stat-number">$540</span>
+                  <span className="stat-label">Worker Earnings</span>
                 </div>
                 <div className="stat">
-                  <span className="stat-number">100%</span>
-                  <span className="stat-label">Secure</span>
+                  <span className="stat-number">10%</span>
+                  <span className="stat-label">Platform Fee</span>
                 </div>
               </div>
             </div>
             <div className="hero-image">
-              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Workforce" />
+              <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Money and Success" />
               <div className="hero-image-overlay"></div>
             </div>
           </div>
