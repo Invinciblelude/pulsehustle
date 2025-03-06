@@ -1,169 +1,234 @@
 .need40-section {
-  padding: 2rem;
+  padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .need40-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .need40-header h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #1da1f2, #00ff9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .purpose-line {
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.4rem;
+  color: #ffffff;
   max-width: 800px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 .stats-banner {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 1.5rem;
+  gap: 3rem;
+  margin-top: 2rem;
 }
 
 .stats-banner span {
-  background: #f8f9fa;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  color: #333;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  color: white;
+  font-size: 1.2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-banner span:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .action-buttons {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  gap: 2rem;
+  margin-bottom: 4rem;
   flex-wrap: wrap;
 }
 
 .action-buttons button,
 .action-buttons a {
-  padding: 1rem 2rem;
-  border-radius: 8px;
+  padding: 1.2rem 2.5rem;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 200px;
-  transition: transform 0.2s;
+  min-width: 220px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.1rem;
 }
 
 .action-buttons button:hover,
 .action-buttons a:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .give40-button {
-  background: #1da1f2;
+  background: linear-gradient(45deg, #1da1f2, #00ff9d);
   color: white;
 }
 
 .paypal-button {
-  background: #0070ba;
+  background: linear-gradient(45deg, #0070ba, #003087);
   color: white;
 }
 
 .x-share-button {
-  background: #000;
+  background: linear-gradient(45deg, #000000, #333333);
   color: white;
 }
 
 .button-detail {
-  font-size: 0.8rem;
-  opacity: 0.8;
-  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.8rem;
   text-align: center;
 }
 
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
 }
 
 .feature-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border-radius: 16px;
   text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .feature-card h3 {
-  color: #333;
-  margin-bottom: 1rem;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
 }
 
 .feature-card p,
 .feature-card a {
-  color: #666;
-  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .contact-section {
   text-align: center;
-  padding: 3rem 0;
-  background: #f8f9fa;
-  border-radius: 12px;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-section h3 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.contact-section p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
 }
 
 .contact-buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .contact-buttons button {
-  padding: 0.8rem 2rem;
-  border-radius: 6px;
+  padding: 1.2rem 3rem;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.2s;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
 
 .post-button {
-  background: #1da1f2;
+  background: linear-gradient(45deg, #1da1f2, #00ff9d);
   color: white;
 }
 
 .earn-button {
-  background: #28a745;
+  background: linear-gradient(45deg, #28a745, #1da1f2);
   color: white;
+}
+
+.contact-buttons button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
   .need40-header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   
   .stats-banner {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
   .action-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
   }
   
   .action-buttons button,
   .action-buttons a {
+    width: 100%;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .contact-buttons button {
     width: 100%;
   }
 } 

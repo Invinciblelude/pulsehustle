@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Need40Section.css';
 
 const Need40Section = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleGive40Click = () => {
-    // Handle Give $40 button click
-    window.open('https://www.paypal.com/paypalme/invinciblelude/40', '_blank');
+    setIsLoading(true);
+    // Direct PayPal.me link for $40
+    window.location.href = 'https://www.paypal.com/paypalme/invinciblelude/40';
   };
 
   const handlePayPalClick = () => {
-    // Handle PayPal button click
-    window.open('https://www.paypal.com/paypalme/invinciblelude', '_blank');
+    setIsLoading(true);
+    // General PayPal.me link
+    window.location.href = 'https://www.paypal.com/paypalme/invinciblelude';
   };
 
   const handleXShare = () => {
-    const text = "Join me in supporting PulseHustle - where talent meets opportunity! 🚀 #PulseHustle #Gigs";
+    const text = "Join me in supporting PulseHustle - where talent meets opportunity! 🚀 #PulseHustle #Gigs #Need40";
     const url = "https://pulsehustle.com";
     window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
   };
@@ -23,7 +27,7 @@ const Need40Section = () => {
       <div className="need40-header">
         <h1>Need40</h1>
         <p className="purpose-line">
-          Empowering talent through AI-driven gig matching and community support
+          Empowering the Future of Work Through AI-Driven Opportunities
         </p>
         <div className="stats-banner">
           <span>$40 Goal</span>
@@ -33,43 +37,63 @@ const Need40Section = () => {
       </div>
 
       <div className="action-buttons">
-        <button className="give40-button" onClick={handleGive40Click}>
-          Give $40
-          <span className="button-detail">Support our mission</span>
+        <button 
+          className="give40-button" 
+          onClick={handleGive40Click}
+          disabled={isLoading}
+        >
+          {isLoading ? 'Redirecting...' : 'Give $40'}
+          <span className="button-detail">Direct Support</span>
         </button>
-        <button className="paypal-button" onClick={handlePayPalClick}>
-          PayPal
-          <span className="button-detail">Secure payment</span>
+        <button 
+          className="paypal-button" 
+          onClick={handlePayPalClick}
+          disabled={isLoading}
+        >
+          {isLoading ? 'Redirecting...' : 'PayPal'}
+          <span className="button-detail">Custom Amount</span>
         </button>
         <button className="x-share-button" onClick={handleXShare}>
           Share on X
-          <span className="button-detail">Spread the word</span>
+          <span className="button-detail">Spread the Word</span>
         </button>
       </div>
 
       <div className="features-grid">
         <div className="feature-card">
-          <h3>AI-Driven Matching</h3>
-          <p>Our advanced AI matches your skills with the perfect gigs</p>
+          <h3>AI-Powered Matching</h3>
+          <p>Advanced algorithms connect talent with perfect opportunities</p>
         </div>
         <div className="feature-card">
-          <h3>Vote & Earn</h3>
-          <p>Cast your vote and earn rewards while shaping our platform</p>
+          <h3>Community Voting</h3>
+          <p>Shape the future of work with your voice and earn rewards</p>
         </div>
         <div className="feature-card">
-          <h3>Latest Gigs</h3>
-          <p>Browse through our curated selection of high-paying opportunities</p>
+          <h3>Premium Gigs</h3>
+          <p>Access high-paying opportunities vetted by our community</p>
         </div>
       </div>
 
       <div className="contact-section">
-        <h3>Ready to start?</h3>
-        <p>Join our community of talented professionals</p>
+        <h3>Ready to Transform Your Career?</h3>
+        <p>Join our community of forward-thinking professionals</p>
         <div className="contact-buttons">
-          <button className="post-button" onClick={() => window.location.href = '#post-gig'}>
+          <button 
+            className="post-button" 
+            onClick={() => {
+              const element = document.querySelector('.post-gig-section');
+              element?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Post a Gig
           </button>
-          <button className="earn-button" onClick={() => window.location.href = '#browse-gigs'}>
+          <button 
+            className="earn-button"
+            onClick={() => {
+              const element = document.querySelector('.gigs-section');
+              element?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Start Earning
           </button>
         </div>
