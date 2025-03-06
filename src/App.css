@@ -147,7 +147,13 @@
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  filter: contrast(1.1) brightness(1.05);
+  transition: filter 0.3s ease;
+}
+
+.hero-image:hover img {
+  filter: contrast(1.15) brightness(1.1);
 }
 
 .hero-image-overlay {
@@ -156,8 +162,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(29, 161, 242, 0.2), rgba(0, 255, 157, 0.2));
+  background: linear-gradient(135deg, rgba(29, 161, 242, 0.1), rgba(0, 255, 157, 0.1));
   border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Form Container */
