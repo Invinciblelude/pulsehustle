@@ -251,4 +251,60 @@ export const recordJobCompletion = async (gigId) => {
       error: error.message || 'Error recording job completion' 
     };
   }
+};
+
+/**
+ * Records a social share event for tracking and analytics
+ * @param {Object} shareData - Data about the share event
+ * @param {string} shareData.gigId - ID of the gig being shared
+ * @param {string} shareData.platform - Platform the content was shared on (twitter, facebook, linkedin, etc.)
+ * @param {string|null} shareData.userId - ID of the user who shared (null if anonymous)
+ * @returns {Promise<Object>} Success or error response
+ */
+export const recordSocialShare = async (shareData) => {
+  try {
+    // Validate required fields
+    if (!shareData.gigId || !shareData.platform) {
+      console.error('Missing required fields for social share tracking');
+      return { error: 'Missing required fields' };
+    }
+
+    // If userId isn't provided, try to get the current user
+    if (!shareData.userId) {
+      const { data } = await supabase.auth.getUser();
+      if (data?.user) {
+        shareData.userId = data.user.id;
+      }
+    }
+
+    // Record the share event
+    const { data, error } = await supabase
+      .from('social_shares')
+      .insert([
+        {
+          gig_id: shareData.gigId,
+          platform: shareData.platform,
+          user_id: shareData.userId,
+          ip_address: null, // We don't collect IP addresses for privacy reasons
+        }
+      ]);
+
+    if (error) {
+      console.error('Error recording social share:', error.message);
+      // Don't return error to avoid disrupting user experience
+      return { success: false };
+    }
+
+    // Also increment the share counter for the gig
+    await supabase.rpc('increment_gig_share_count', { 
+      gig_id: shareData.gigId,
+      platform: shareData.platform
+    });
+
+    return { success: true, data };
+  } catch (error) {
+    console.error('Unexpected error recording social share:', error.message);
+    // Don't return error to avoid disrupting user experience
+    return { success: false };
+  }
 }; 
